@@ -8,7 +8,7 @@ import penguins from "./penguins.json" with { type: 'json' };
 /* Désactiver COPILOT pour que vous fassiez l'effort de lire */
 
 // console.log("=== EXEMPLES DES MÉTHODES ARRAY AVEC LES DONNÉES PENGUINS ===\n");
-// console.log(`Nombre total de pingouins: ${/* TODO */}\n`);
+// console.log(`Nombre total de pingouins: ${penguins.length/}\n`);
 
 // ===== MÉTHODES D'ACCÈS AUX ÉLÉMENTS =====
 
@@ -229,19 +229,19 @@ console.log("\n--- GROUPEMENT AVEC Object.groupBy ---");
 
 
 // Groupement par espèce et sexe combinés
-console.log("\n• Object.groupBy() - Répartition par espèce et sexe:");
-const pingouinsParEspeceEtSexe = Object.groupBy(penguins, pingouin =>
-    `${pingouin.species} - ${pingouin.sex || 'inconnu'}`
-);
+// console.log("\n• Object.groupBy() - Répartition par espèce et sexe:");
+// const pingouinsParEspeceEtSexe = Object.groupBy(penguins, pingouin =>
+//     `${pingouin.species} - ${pingouin.sex || 'inconnu'}`
+// );
 
-// // Groupement par sexe
+// Groupement par sexe
 // console.log("\n• Object.groupBy() - Répartition par sexe:");
-// const pingouinsParSexe = Object.groupBy(penguins, /* TODO remplacer null par "inconnu" */);
+// const pingouinsParSexe = Object.groupBy(penguins, p => p.sex ?? "inconnu");
 // for (const [sexe, pingouins] of Object.entries(pingouinsParSexe)) {
 //     console.log(`  ${sexe}: ${pingouins?.length || 0} pingouins`);
 // }
 
-// // Groupement par catégorie de masse (léger, moyen, lourd)
+// Groupement par catégorie de masse (léger, moyen, lourd)
 // console.log("\n• Object.groupBy() - Répartition par catégorie de masse:");
 // const pingouinsParCategorieMasse = Object.groupBy(penguins, pingouin => {
 //     if (!pingouin.body_mass_g) return 'masse inconnue';
