@@ -137,75 +137,75 @@ console.log("--- MÉTHODES DE TRI ---");
 console.log("--- MÉTHODES D'ITÉRATION ---");
 
 // forEach() - Exécute une fonction pour chaque élément
-console.log("• forEach() - Affichage des 3 premiers pingouins:");
-penguins.slice(0, 3).forEach((p, index) => {
-    console.log(`  ${index + 1}. ${p.species} de ${p.island} (${p.body_mass_g}g)`);
-});
+// console.log("• forEach() - Affichage des 3 premiers pingouins:");
+// penguins.slice(0, 3).forEach((p, index) => {
+//     console.log(`  ${index + 1}. ${p.species} de ${p.island} (${p.body_mass_g}g)`);
+// });
 
 
-// // ===== MÉTHODES DE CONVERSION =====
+// ===== MÉTHODES DE CONVERSION =====
 
-// console.log("--- MÉTHODES DE CONVERSION ---");
+console.log("--- MÉTHODES DE CONVERSION ---");
 
-// // join() - Joint tous les éléments en une chaîne
+// join() - Joint tous les éléments en une chaîne
 // const premiersNoms = penguins.slice(0, 5).map(p => p.species);
 // console.log("• join() - Espèces séparées par ' | ':", premiersNoms.join(" | "));
-// console.log("• join() - Espèces séparées par des virgules:", /* TODO */);
+// console.log("• join() - Espèces séparées par des virgules:", premiersNoms.join(","));
 
-// // toString() - Convertit en chaîne (équivalent à join(','))
+// toString() - Convertit en chaîne (équivalent à join(','))
 // console.log("• toString() - Premières masses:", penguins.slice(0, 3).map(p => p.body_mass_g).toString());
 // console.log();
 
-// // ===== MÉTHODES DE CONCATÉNATION =====
+// ===== MÉTHODES DE CONCATÉNATION =====
 
-// console.log("--- MÉTHODES DE CONCATÉNATION ---");
+console.log("--- MÉTHODES DE CONCATÉNATION ---");
 
-// // concat() - Joint des tableaux
+// concat() - Joint des tableaux
 // const adelies = penguins.filter(p => p.species === "Adelie").slice(0, 2);
 // const chinstraps = penguins.filter(p => p.species === "Chinstrap").slice(0, 2);
-// const melange = /* TODO */;
+// const melange = adelies.concat(chinstraps);
 // console.log("• concat() - Mélange Adelies + Chinstraps:");
 // melange.forEach(p => console.log(`  ${p.species} de ${p.island}`));
 // console.log();
 
-// // ===== MÉTHODES D'APLATISSEMENT =====
+// ===== MÉTHODES D'APLATISSEMENT =====
 
-// console.log("--- MÉTHODES D'APLATISSEMENT ---");
+console.log("--- MÉTHODES D'APLATISSEMENT ---");
 
-// // flat() - Aplatit les tableaux imbriqués
+// flat() - Aplatit les tableaux imbriqués
 // const groupesParIle = [
 //     penguins.filter(p => p.island === "Torgersen").slice(0, 2).map(p => p.species),
-//     penguins.filter(p => p.island === "Biscoe").slice(0, 2).map(/* TODO */),
-//     penguins.filter(p => p.island === "Dream").slice(0, 2).map(/* TODO */)
+//     penguins.filter(p => p.island === "Biscoe").slice(0, 2).map(p => p.species),
+//     penguins.filter(p => p.island === "Dream").slice(0, 2).map(p => p.species)
 // ];
 // console.log("• flat() - Groupes par île avant aplatissement:", groupesParIle);
 // console.log("• flat() - Après aplatissement:", groupesParIle.flat());
 // console.log();
 
-// // ===== STATISTIQUES FINALES =====
+// ===== STATISTIQUES FINALES =====
 
-// console.log("--- STATISTIQUES FINALES ---");
+console.log("--- STATISTIQUES FINALES ---");
 
-// // Calculs statistiques utilisant différentes méthodes
+// Calculs statistiques utilisant différentes méthodes
 // const masses = penguins.map(p => p.body_mass_g).filter(m => m != null);
-// const masseTotaleCalc = masses.reduce((sum, mass) => /* TODO */, 0);
+// const masseTotaleCalc = masses.reduce((sum, mass) => sum + mass, 0);
 // const masseMoyenne = masseTotaleCalc / masses.length;
 // const masseMin = Math.min(...masses);
-// const masseMax = /* TODO */;
+// const masseMax = Math.max(...masses);
 
 // console.log("• Statistiques des masses:");
 // console.log(`  - Masse moyenne: ${masseMoyenne.toFixed(1)}g`);
 // console.log(`  - Masse minimale: ${masseMin}g`);
 // console.log(`  - Masse maximale: ${masseMax}g`);
 
-// // Répartition par île
+// Répartition par île
 // const repartitionIles = penguins.reduce((acc, p) => {
 //     acc[p.island] = (acc[p.island] || 0) + 1;
 //     return acc;
 // }, {} as Record<string, number>);
 // console.log("• Répartition par île:", repartitionIles);
 
-// // Répartition par sexe
+// Répartition par sexe
 // const repartitionSexe = penguins.reduce((acc, p) => {
 //     if (p.sex != null) {
 //         acc[p.sex] = (acc[p.sex] || 0) + 1;
@@ -214,25 +214,25 @@ penguins.slice(0, 3).forEach((p, index) => {
 // }, {} as Record<string, number>);
 // console.log("• Répartition par sexe:", repartitionSexe);
 
-// // =============================================
-// // GROUPEMENT DES DONNÉES AVEC Object.groupBy
-// // =============================================
+// =============================================
+// GROUPEMENT DES DONNÉES AVEC Object.groupBy
+// =============================================
 
-// console.log("\n--- GROUPEMENT AVEC Object.groupBy ---");
+console.log("\n--- GROUPEMENT AVEC Object.groupBy ---");
 
-// // Groupement par île
+// Groupement par île
 // console.log("• Object.groupBy() - Répartition par île:");
-// const pingouinsParIle = Object.groupBy(penguins, /* TODO */);
+// const pingouinsParIle = Object.groupBy(penguins, p => p.island);
 // for (const [ile, pingouins] of Object.entries(pingouinsParIle)) {
 //     console.log(`  ${ile}: ${pingouins?.length || 0} pingouins`);
 // }
 
 
-// // Groupement par espèce et sexe combinés
-// console.log("\n• Object.groupBy() - Répartition par espèce et sexe:");
-// const pingouinsParEspeceEtSexe = Object.groupBy(penguins, pingouin =>
-//     `${pingouin.species} - ${pingouin.sex || 'inconnu'}`
-// );
+// Groupement par espèce et sexe combinés
+console.log("\n• Object.groupBy() - Répartition par espèce et sexe:");
+const pingouinsParEspeceEtSexe = Object.groupBy(penguins, pingouin =>
+    `${pingouin.species} - ${pingouin.sex || 'inconnu'}`
+);
 
 // // Groupement par sexe
 // console.log("\n• Object.groupBy() - Répartition par sexe:");
